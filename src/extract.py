@@ -39,14 +39,14 @@ def extract_transactional_data(dbname, host, port, user, password):
     query = """
         SELECT ot.invoice, 
            ot.stock_code,
-           CASE WHEN s.description IS NULL THEN 'Unknown'
-                ELSE s.description END AS description,
            ot.price,
-           ot.quantity,        
-           CAST(invoice_date As DateTime) AS invoice_date,
+           ot.quantity,
            ot.customer_id,
            ot.country,
            ot.price * ot.quantity AS total_order_value
+           CASE WHEN s.description IS NULL THEN 'Unknown'
+                ELSE s.description END AS description,
+         CAST(invoice_date As DateTime) AS invoice_date,
         FROM bootcamp.online_transactions ot
         /* this is a subquery that removes '?' from the stock_description table */
         LEFT JOIN (SELECT *
