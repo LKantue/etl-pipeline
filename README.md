@@ -16,10 +16,7 @@ Building an ETL pipeline that carries out the following tasks:
 
 ### Requirements
 The minimum requirements:
-<<<<<<< HEAD
 
-=======
->>>>>>> 4a34e26625dc299eb8120b273f11f68861746cbc
 - Docker for Mac: [Docker >= 20.10.2](https://docs.docker.com/docker-for-mac/install/)
 - Docker for Windows: 
 - Installation: [Docker](https://docs.docker.com/desktop/install/windows-install/)
@@ -28,17 +25,19 @@ The minimum requirements:
 ### Instructions on how to execute the code
 - Copy the `.env.example` file to `.env` and fill out the environment vars.
 
-<<<<<<< HEAD
 - Make sure you are executing the code from the etl folder, and you have Docker Desktop running.
-=======
-- Make sure you are executing the code from the etl folder and you have Docker Desktop running.
 
->>>>>>> 4a34e26625dc299eb8120b273f11f68861746cbc
+- Make sure you are executing the code from the etl folder, and you have Docker Desktop running
 
 To run it locally first build the image.
 
 ```bash
-  docker image build -t etl
+  docker image build -t etl  
+```
+Then run the etl job using docker
+
+```bash
+  docker run --env-file .env etl
 ```
 
 
